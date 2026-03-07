@@ -5,7 +5,7 @@ import sys
 VERSION = "1.1"
 
 VERSION_URL = "https://raw.githubusercontent.com/USERNAME/mytool/main/version.txt"
-SCRIPT_URL = "https://raw.githubusercontent.com/USERNAME/mytool/main/tool.py"
+SCRIPT_URL = "https://raw.githubusercontent.com/nasimhf/monir/refs/heads/main/tool.py"
 
 
 def check_update():
