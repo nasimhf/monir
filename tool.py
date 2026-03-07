@@ -5,11 +5,13 @@ import requests
 import os
 import sys
 import time
-#hkjkkk
-VERSION = "1.4"
+
+# ================== إعدادات النسخة ==================
+VERSION = "1.0"
 VERSION_URL = "https://raw.githubusercontent.com/nasimhf/monir/main/version.txt"
 SCRIPT_URL = "https://raw.githubusercontent.com/nasimhf/monir/main/tool.py"
 
+# ================== دالة فحص التحديث ==================
 def check_update():
     """فحص التحديثات وتحميل النسخة الجديدة إذا وجدت"""
     try:
@@ -19,10 +21,11 @@ def check_update():
 
         if latest_version != VERSION:
             print(f"🔄 يوجد تحديث جديد: {latest_version}")
-
+            
+            # تحميل نسخة الأداة الجديدة
             code = requests.get(SCRIPT_URL, timeout=10).text
 
-            # حفظ نسخة جديدة مباشرة في نفس الملف
+            # حفظ النسخة الجديدة مباشرة في نفس الملف
             file_name = os.path.basename(__file__)
             with open(file_name, "w", encoding="utf-8") as f:
                 f.write(code)
@@ -31,7 +34,7 @@ def check_update():
             print("♻️ إعادة تشغيل النسخة الجديدة...")
             time.sleep(1)
 
-            # إعادة تشغيل النسخة الجديدة
+            # إعادة تشغيل النسخة الجديدة تلقائيًا
             os.execv(sys.executable, [sys.executable] + sys.argv)
         else:
             print("✅ لديك أحدث إصدار")
@@ -39,18 +42,29 @@ def check_update():
     except Exception as e:
         print(f"⚠️ حدث خطأ أثناء التحديث: {e}")
 
-
+# ================== دالة الأداة الرئيسية ==================
 def main_tool():
-    """هنا ضع كل الأكواد الرئيسية للأداة التي تريدها"""
-    print(f"🚀 الأداة تعمل الآن! الإصدار الحالي: {VERSION}")
-    # مثال: ضع أي وظيفة تريد التحكم بها
+    """هنا ضع جميع الوظائف الرئيسية للأداة"""
+    print(f"\n🚀 الأداة تعمل الآن! الإصدار الحالي: {VERSION}\n")
+    
     while True:
-        choice = input("⚙️ اختر أمر (1: مثال، 2: خروج): ")
+        print("⚙️ القائمة الرئيسية:")
+        print("1️⃣ مثال على وظيفة")
+        print("2️⃣ خروج")
+        choice = input("اختر رقم: ").strip()
+        
         if choice == "1":
-            print("🔹 مثال على عمل الأداة")
+            print("🔹 تنفيذ مثال على الأداة...")
+            # هنا ضع الكود الذي تريد تنفيذه
+            time.sleep(1)
+            print("✅ تم التنفيذ")
         elif choice == "2":
-            print("👋 وداعاً!")
+            print("👋 وداعًا!")
             break
         else:
-            print("❌ خيار غير صحيح")
+            print("❌ خيار غير صحيح، حاول مرة أخرى.\n")
 
+# ================== نقطة البداية ==================
+if __name__ == "__main__":
+    check_update()   # أولاً: تحقق من التحديث
+    main_tool()      # ثم شغّل الأداة
