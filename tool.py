@@ -4,7 +4,7 @@ import requests
 import os
 import sys
 #ahmad
-VERSION = "1.0"
+VERSION = "1.2"
 
 VERSION_URL = "https://raw.githubusercontent.com/username/project/main/version.txt"
 SCRIPT_URL = "https://raw.githubusercontent.com/username/project/main/tool.py"
