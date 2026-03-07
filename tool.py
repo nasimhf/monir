@@ -5,8 +5,8 @@ import requests
 import os
 import sys
 import time
-
-VERSION = "1.0"
+#hhhhjj
+VERSION = "1.1"
 VERSION_URL = "https://raw.githubusercontent.com/nasimhf/monir/main/version.txt"
 SCRIPT_URL = "https://raw.githubusercontent.com/nasimhf/monir/main/tool.py"
 
