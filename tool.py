@@ -2,7 +2,7 @@ import requests
 import os
 import sys
 #hakim
-VERSION = "1.1"
+VERSION = "1.3"
 
 VERSION_URL = "https://raw.githubusercontent.com/nasimhf/monir/refs/heads/main/version.txt"
 SCRIPT_URL = "https://raw.githubusercontent.com/nasimhf/monir/refs/heads/main/tool.py"
