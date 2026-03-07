@@ -1,38 +1,59 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 import requests
 import os
 import sys
-#hakim
-VERSION = "1.3"
+import time
 
-VERSION_URL = "https://raw.githubusercontent.com/nasimhf/monir/refs/heads/main/version.txt"
-SCRIPT_URL = "https://raw.githubusercontent.com/nasimhf/monir/refs/heads/main/tool.py"
-
+VERSION = "1.0"
+VERSION_URL = "https://raw.githubusercontent.com/nasimhf/monir/main/version.txt"
+SCRIPT_URL = "https://raw.githubusercontent.com/nasimhf/monir/main/tool.py"
 
 def check_update():
+    """فحص التحديثات وتحميل النسخة الجديدة إذا وجدت"""
     try:
         print("🔍 فحص التحديثات...")
-
         r = requests.get(VERSION_URL, timeout=10)
         latest_version = r.text.strip()
 
         if latest_version != VERSION:
-            print("🔄 يوجد تحديث جديد:", latest_version)
+            print(f"🔄 يوجد تحديث جديد: {latest_version}")
 
-            code = requests.get(SCRIPT_URL).text
+            code = requests.get(SCRIPT_URL, timeout=10).text
 
+            # حفظ نسخة جديدة مباشرة في نفس الملف
             file_name = os.path.basename(__file__)
-
-            # حفظ نسخة جديدة
             with open(file_name, "w", encoding="utf-8") as f:
                 f.write(code)
 
-            print("✅ تم تحديث الأداة")
-            print("♻️  hhhسيتم إعادة تشغيل الأداة")
+            print(f"✅ تم تحديث الأداة إلى الإصدار {latest_version}")
+            print("♻️ إعادة تشغيل النسخة الجديدة...")
+            time.sleep(1)
 
-            os.execv(sys.executable, ["python"] + sys.argv)
-
+            # إعادة تشغيل النسخة الجديدة
+            os.execv(sys.executable, [sys.executable] + sys.argv)
         else:
             print("✅ لديك أحدث إصدار")
 
     except Exception as e:
-        print("⚠️ تعذر التحقق من التحديث")
+        print(f"⚠️ حدث خطأ أثناء التحديث: {e}")
+
+
+def main_tool():
+    """هنا ضع كل الأكواد الرئيسية للأداة التي تريدها"""
+    print(f"🚀 الأداة تعمل الآن! الإصدار الحالي: {VERSION}")
+    # مثال: ضع أي وظيفة تريد التحكم بها
+    while True:
+        choice = input("⚙️ اختر أمر (1: مثال، 2: خروج): ")
+        if choice == "1":
+            print("🔹 مثال على عمل الأداة")
+        elif choice == "2":
+            print("👋 وداعاً!")
+            break
+        else:
+            print("❌ خيار غير صحيح")
+
+if __name__ == "__main__":
+    check_update()
+    main_tool()
