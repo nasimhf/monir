@@ -5,7 +5,7 @@ import requests
 import os
 import sys
 import time
-#hhhhjj
+#hkjkkk
 VERSION = "1.3"
 VERSION_URL = "https://raw.githubusercontent.com/nasimhf/monir/main/version.txt"
 SCRIPT_URL = "https://raw.githubusercontent.com/nasimhf/monir/main/tool.py"
@@ -54,35 +54,3 @@ def main_tool():
         else:
             print("❌ خيار غير صحيح")
 
-if __name__ == "__main__":
-    check_update()
-    main_tool()
-    import requests
-import sys
-import time
-
-CHECK_URL = "https://raw.githubusercontent.com/nasimhf/Ahmad/main/karim"
-
-def check_subscription():
-    try:
-        r = requests.get(CHECK_URL, timeout=10)
-        data = r.text.strip()
-
-        if "amin" in data:
-            print("✅ الاشتراك مفعل")
-            return True
-        else:
-            print("❌ انتهى الاشتراك")
-            return False
-
-    except Exception as e:
-        print("⚠️ تعذر الاتصال بالخادم")
-        return False
-
-
-if not check_subscription():
-    print("🔒 عليك تجديد الاشتراك")
-    sys.exit()
-
-print("🚀 مرحبا تم الاشتراك")
-input("اضغط Enter للمتابعة...")
