@@ -6,7 +6,7 @@ import os
 import sys
 import time
 #hkjkkk
-VERSION = "1.3"
+VERSION = "1.4"
 VERSION_URL = "https://raw.githubusercontent.com/nasimhf/monir/main/version.txt"
 SCRIPT_URL = "https://raw.githubusercontent.com/nasimhf/monir/main/tool.py"
 
