@@ -4,7 +4,7 @@ import sys
 #hakim
 VERSION = "1.1"
 
-VERSION_URL = "https://raw.githubusercontent.com/USERNAME/mytool/main/version.txt"
+VERSION_URL = "https://raw.githubusercontent.com/nasimhf/monir/refs/heads/main/version.txt"
 SCRIPT_URL = "https://raw.githubusercontent.com/nasimhf/monir/refs/heads/main/tool.py"
 
 
