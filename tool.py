@@ -1,8 +1,8 @@
 import requests
 import os
 import sys
-
-VERSION = "1.0"
+#hakim
+VERSION = "1.1"
 
 VERSION_URL = "https://raw.githubusercontent.com/USERNAME/mytool/main/version.txt"
 SCRIPT_URL = "https://raw.githubusercontent.com/USERNAME/mytool/main/tool.py"
@@ -27,7 +27,7 @@ def check_update():
                 f.write(code)
 
             print("✅ تم تحديث الأداة")
-            print("♻️ سيتم إعادة تشغيل الأداة")
+            print("♻️  hhhسيتم إعادة تشغيل الأداة")
 
             os.execv(sys.executable, ["python"] + sys.argv)
 
