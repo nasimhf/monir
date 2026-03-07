@@ -3,7 +3,7 @@
 import requests
 import os
 import sys
-
+#ahmad
 VERSION = "1.0"
 
 VERSION_URL = "https://raw.githubusercontent.com/username/project/main/version.txt"
@@ -26,7 +26,7 @@ def check_update():
                 f.write(code)
 
             print("✅ تم تحديث الأداة")
-            print("♻️ أعد تشغيل البرنامج")
+            print("♻️hh أعد تشغيل البرنامج")
             sys.exit()
 
         else:
